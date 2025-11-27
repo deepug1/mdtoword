@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown and Mermaid to DOCX - Combined Editor</title>
+    <style>
+    body {
+        font-family: sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    textarea#combinedContentInput {
+        width: 98%;
+        min-height: 300px;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .button-group {
+        margin-bottom: 20px;
+    }
+
+    .button-group button {
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: #333;
+    }
+
+    #status {
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+    }
+
+    .error-message {
+        color: red;
+        font-family: monospace;
+        white-space: pre-wrap;
+        text-align: left;
+        background-color: #ffebeb;
+        border: 1px solid #ffc0c0;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    label {
+        margin-right: 5px;
+        font-weight: bold;
+    }
+
+    select {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    .font-picker-section {
+        margin-bottom: 20px;
+    }
+
+    #documentPreview {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+        min-height: 100px;
+        line-height: 1.6;
+    }
+
+    #documentPreview .markdown-preview-segment h1 {
+        font-size: 18pt;
+        font-weight: bold;
+    }
+
+    #documentPreview .markdown-preview-segment h2 {
+        font-size: 14pt;
+        font-weight: bold;
+    }
+
+    #documentPreview .markdown-preview-segment h3 {
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    #documentPreview .markdown-preview-segment h4 {
+        font-size: 12pt;
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    #documentPreview .markdown-preview-segment h5,
+    #documentPreview .markdown-preview-segment h6 {
+        margin-top: 0.8em;
+        margin-bottom: 0.4em;
+        line-height: 1.2;
+        font-weight: bold;
+    }
+
+    #documentPreview .markdown-preview-segment p,
+    #documentPreview .markdown-preview-segment li,
+    #documentPreview .markdown-preview-segment td,
+    #documentPreview .markdown-preview-segment th {
+        font-size: 10pt;
+    }
+
+    #documentPreview .markdown-preview-segment code {
+        /* Inline code preview */
+        font-family: monospace;
+        background-color: #f0f0f0;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+
+    #documentPreview .markdown-preview-segment pre code {
+        /* Code block preview */
+        display: block;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        white-space: pre-wrap;
+        /* Ensure wrapping in preview */
+    }
+
+    #documentPreview .markdown-preview-segment table {
+        border-collapse: collapse;
+        margin-bottom: 1em;
+        width: auto;
+        /* Or width: 100% if you want full-width tables */
+    }
+
+    #documentPreview .markdown-preview-segment th,
+    #documentPreview .markdown-preview-segment td {
+        border: 1px solid #ccc;
+        padding: 6px 10px;
+        text-align: left;
+    }
+
+    #documentPreview .markdown-preview-segment th {
+        background-color: #f0f0f0;
+        font-weight: bold;
+    }
+
+    #documentPreview .markdown-preview-segment hr {
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+    }
+
+
+    #documentPreview .mermaid-preview-segment svg {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        display: block;
+        margin: 15px auto;
+        background-color: white;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #documentPreview,
+        #documentPreview * {
+            visibility: visible;
+        }
+
+        #documentPreview {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 15mm;
+            /* Typical print margin */
+            border: none;
+            box-shadow: none;
+            background-color: white;
+            font-size: 10pt;
+        }
+
+        #documentPreview button,
+        #documentPreview input,
+        #documentPreview textarea,
+        #documentPreview select {
+            display: none !important;
+        }
+
+        #documentPreview .error-message {
+            border: 1px solid #666 !important;
+            background-color: #f0f0f0 !important;
+            color: black !important;
+        }
+
+        #documentPreview .mermaid-preview-segment svg {
+            max-width: 100% !important;
+            /* Try to fit within print area */
+            width: auto !important;
+            /* Allow shrinking */
+            height: auto !important;
+            page-break-inside: avoid;
+            padding: 0 !important;
+            /* Remove padding for print to maximize diagram size */
+            border: none !important;
+            /* Remove border for cleaner print */
+        }
+
+        #documentPreview .markdown-preview-segment h1 {
+            font-size: 18pt !important;
+            font-weight: bold !important;
+        }
+
+        #documentPreview .markdown-preview-segment h2 {
+            font-size: 14pt !important;
+            font-weight: bold !important;
+        }
+
+        #documentPreview .markdown-preview-segment h3 {
+            font-size: 12pt !important;
+            font-weight: bold !important;
+        }
+
+        #documentPreview .markdown-preview-segment h4 {
+            font-size: 12pt !important;
+            font-style: italic !important;
+            font-weight: normal !important;
+        }
+
+        #documentPreview .markdown-preview-segment p,
+        #documentPreview .markdown-preview-segment li,
+        #documentPreview .markdown-preview-segment td,
+        #documentPreview .markdown-preview-segment th {
+            font-size: 10pt !important;
+        }
+
+        #documentPreview .markdown-preview-segment table {
+            width: 100% !important;
+            page-break-inside: avoid;
+        }
+
+        #documentPreview .markdown-preview-segment hr {
+            border-top: 1px solid #000 !important;
+        }
+    }
+    </style>
+    <script src="assets/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@9.5.0/dist/index.iife.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Markdown & Mermaid to DOCX</h1>
+
+        <div class="font-picker-section">
+            <h3>Document Font (for Preview & DOCX)</h3>
+            <label for="fontPicker">Font:</label>
+            <select id="fontPicker">
+                <option value="Calibri">Calibri</option>
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Aptos">Aptos</option>
+            </select>
+        </div>
+
+        <h3>Edit Combined Content</h3>
+        <p>Content below is loaded from <code>default.md</code> (if found and served correctly). Edit Markdown and
+            Mermaid (<code>```mermaid ... ```</code>) blocks directly.</p>
+
+        <textarea id="combinedContentInput"
+            placeholder="Combined Markdown and Mermaid content will appear here..."></textarea>
+
+        <div class="button-group">
+            <button id="generateDocxButton">Generate Full DOCX</button>
+            <button id="printPreviewButton">Print Preview</button>
+        </div>
+        <div id="status"></div>
+
+        <h2>Live Document Preview</h2>
+        <div id="documentPreview">
+            <p>Preview will appear here...</p>
+        </div>
+    </div>
+
+    <script>
+    const combinedContentInput = document.getElementById('combinedContentInput');
+    const generateDocxButton = document.getElementById('generateDocxButton');
+    const printPreviewButton = document.getElementById('printPreviewButton');
+    const statusDiv = document.getElementById('status');
+    const documentPreviewDiv = document.getElementById('documentPreview');
+    const fontPicker = document.getElementById('fontPicker');
+    let debounceTimerPreview;
+
+    mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        flowchart: {
+            htmlLabels: false,
+            useMaxWidth: true
+        },
+        theme: 'default',
+    });
+
+    async function loadDefaultMd() {
+        statusDiv.textContent = 'Loading default.md...';
+        try {
+            const response = await fetch('default.md');
+            if (!response.ok) throw new Error(
+                `Failed to fetch default.md: ${response.statusText} (Status: ${response.status}). Ensure page is served via HTTP/S.`
+                );
+            combinedContentInput.value = await response.text();
+            statusDiv.textContent = 'default.md loaded.';
+        } catch (error) {
+            console.error("Error loading default.md:", error);
+            statusDiv.textContent = `Error: ${error.message}. Using fallback content.`;
+            combinedContentInput.value =
+                `## Fallback Title\n\nCould not load 'default.md'.\n\n\`\`\`mermaid\ngraph TD\nA[Error] --> B[Loading File]\n\`\`\``;
+        }
+        schedulePreviewUpdate();
+    }
+
+    function parseCombinedContentFromTextarea(rawText) {
+        const structure = [];
+        const parts = rawText.split(
+        /(\n?```(?:mermaid|math)\n[\s\S]*?\n```\n?)/g); // Also look for math blocks for future
+        let counter = 0;
+        for (const part of parts) {
+            if (!part || part.trim() === "") continue;
+            const mermaidMatch = part.match(/^\n?```mermaid\n([\s\S]*?)\n```\n?$/);
+            // const mathMatch = part.match(/^\n?```math\n([\s\S]*?)\n```\n?$/); // For future math support
+
+            if (mermaidMatch) {
+                structure.push({
+                    type: 'mermaid',
+                    content: mermaidMatch[1].trim(),
+                    id: `mermaid-${counter++}`
+                });
+                // } else if (mathMatch) {
+                //     structure.push({ type: 'math', content: mathMatch[1].trim(), id: `math-${counter++}` });
+            } else if (part.trim()) {
+                structure.push({
+                    type: 'markdown',
+                    content: part
+                }); // Keep original spacing for markdown
+            }
+        }
+        return structure;
+    }
+
+    function schedulePreviewUpdate() {
+        clearTimeout(debounceTimerPreview);
+        debounceTimerPreview = setTimeout(updateFullPreview, 300);
+    }
+
+    async function updateFullPreview() {
+        statusDiv.textContent = 'Updating preview...';
+        documentPreviewDiv.innerHTML = '';
+        let selectedFontFamily = fontPicker.value;
+        if (selectedFontFamily === 'Aptos') selectedFontFamily = 'Aptos, Calibri, sans-serif';
+        documentPreviewDiv.style.fontFamily = selectedFontFamily;
+
+        const rawContent = combinedContentInput.value;
+        const documentStructure = parseCombinedContentFromTextarea(rawContent);
+        const markedOptions = {
+            gfm: true,
+            breaks: true,
+            mangle: false,
+            headerIds: false
+        }; // breaks: true for line breaks like in GitHub
+
+        for (const segment of documentStructure) {
+            if (segment.type === 'markdown') {
+                const previewSegmentDiv = document.createElement('div');
+                previewSegmentDiv.className = 'markdown-preview-segment';
+                previewSegmentDiv.innerHTML = marked.parse(segment.content, markedOptions);
+                documentPreviewDiv.appendChild(previewSegmentDiv);
+            } else if (segment.type === 'mermaid' && segment.id) {
+                const container = document.createElement('div');
+                container.className = 'mermaid-preview-segment';
+                container.id = `preview-${segment.id}`;
+                documentPreviewDiv.appendChild(container);
+                if (segment.content.trim()) {
+                    try {
+                        const renderId =
+                            `previewSvg-${segment.id}-${Date.now()}${Math.random().toString(16).slice(2)}`;
+                        const {
+                            svg
+                        } = await mermaid.render(renderId, segment.content);
+                        container.innerHTML = svg;
+                    } catch (e) {
+                        container.innerHTML =
+                            `<div class="error-message">Preview Error: ${e.str || e.message}</div>`;
+                    }
+                } else {
+                    container.innerHTML = `<p><i>Empty Mermaid diagram (ID: ${segment.id})</i></p>`;
+                }
+            }
+        }
+        if (!documentStructure.length && rawContent.trim() === "") documentPreviewDiv.innerHTML =
+            `<p><i>Enter content for preview.</i></p>`;
+        statusDiv.textContent = 'Preview updated.';
+    }
+
+    combinedContentInput.addEventListener('input', schedulePreviewUpdate);
+    fontPicker.addEventListener('change', schedulePreviewUpdate);
+    document.addEventListener('DOMContentLoaded', loadDefaultMd);
+    printPreviewButton.addEventListener('click', () => window.print());
+
+    async function renderMermaidToPng(mermaidDefinition, diagramId) {
+        if (!mermaidDefinition.trim()) return null;
+        try {
+            const {
+                svg
+            } = await mermaid.render(`pngSvg-${diagramId}-${Date.now()}`, mermaidDefinition);
+            if (!svg) throw new Error("Mermaid.render failed: no SVG string.");
+            const parser = new DOMParser();
+            const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+            const svgElement = svgDoc.documentElement;
+            if (svgElement.tagName === "parsererror" || !svgElement || svgElement.querySelector("parsererror"))
+                throw new Error("Failed to parse SVG.");
+
+            svgElement.style.backgroundColor = "white";
+            svgElement.querySelectorAll("tspan, text").forEach(t => t.removeAttribute("xml:space"));
+            const cleanedSvgString = new XMLSerializer().serializeToString(svgElement);
+
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                img.onload = () => {
+                    let svgW = parseFloat(svgElement.getAttribute('width')) || img.naturalWidth || 600;
+                    let svgH = parseFloat(svgElement.getAttribute('height')) || img.naturalHeight ||
+                    400;
+                    const viewBox = svgElement.getAttribute('viewBox');
+                    if (viewBox) {
+                        const parts = viewBox.split(/[\s,]+/);
+                        if (parts.length === 4) {
+                            svgW = parseFloat(parts[2]) || svgW;
+                            svgH = parseFloat(parts[3]) || svgH;
+                        }
+                    }
+                    if (svgW <= 0 || svgH <= 0) {
+                        reject(new Error(`Invalid SVG dimensions for ${diagramId}`));
+                        return;
+                    }
+
+                    const scale = 1.5;
+                    canvas.width = Math.max(1, Math.round(svgW * scale));
+                    canvas.height = Math.max(1, Math.round(svgH * scale));
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    if (scale !== 1.0) ctx.scale(scale, scale);
+                    ctx.drawImage(img, 0, 0, svgW, svgH);
+                    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error(
+                        "Canvas toBlob failed.")), 'image/png');
+                };
+                img.onerror = () => reject(new Error("Failed to load SVG Data URL into image."));
+                img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(
+                    cleanedSvgString)));
+            });
+        } catch (e) {
+            console.error(`Error in renderMermaidToPng for ${diagramId}:`, e);
+            statusDiv.textContent = `Error PNG ${diagramId}: ${e.message}`;
+            return null;
+        }
+    }
+
+    function processInlineFormatting(parentNode, docxGlobal, options = {}) {
+        const runs = [];
+        const selectedFont = fontPicker.value;
+
+        Array.from(parentNode.childNodes).forEach(child => {
+            if (child.nodeType === Node.TEXT_NODE) {
+                runs.push(new docxGlobal.TextRun({
+                    text: child.textContent,
+                    ...options
+                }));
+            } else if (child.nodeType === Node.ELEMENT_NODE) {
+                let currentOptions = {
+                    ...options
+                }; // Inherit options from parent
+                const tagName = child.tagName.toLowerCase();
+
+                if (['ul', 'ol', 'table', 'thead', 'tbody', 'tr', 'th', 'td'].includes(tagName))
+            return; // Handled by block parser
+
+                switch (tagName) {
+                    case 'strong':
+                    case 'b':
+                        currentOptions.bold = true;
+                        break;
+                    case 'em':
+                    case 'i':
+                        currentOptions.italics = true;
+                        break;
+                    case 'u':
+                        currentOptions.underline = {};
+                        break;
+                    case 'br':
+                        runs.push(new docxGlobal.TextRun({
+                            break: 1,
+                            ...options
+                        }));
+                        return;
+                    case 'del':
+                    case 's':
+                        currentOptions.strike = true;
+                        break;
+                    case 'code': // Inline code
+                        currentOptions.font = {
+                            name: "Courier New"
+                        }; // Monospace font
+                        currentOptions.size = 20; // 10pt size
+                        currentOptions.shading = {
+                            type: docxGlobal.ShadingType.SOLID,
+                            color: "auto",
+                            fill: "F0F0F0"
+                        }; // Light gray background
+                        break;
+                    case 'a': // Links
+                        const href = child.getAttribute('href');
+                        if (href) {
+                            // Recursively process children of <a> to get TextRuns for the link text
+                            const linkTextRuns = processInlineFormatting(child, docxGlobal, {
+                                ...currentOptions,
+                                style: "Hyperlink"
+                            }); // Apply Hyperlink style
+                            linkTextRuns.forEach(run => {
+                                // The Hyperlink object itself will contain these runs.
+                                // For ExternalHyperlink, children should be TextRun[]
+                            });
+                            runs.push(new docxGlobal.ExternalHyperlink({
+                                children: linkTextRuns,
+                                link: href,
+                            }));
+                        }
+                        return; // Handled link, stop further processing of this node here
+                }
+                // Recursively process children with current options
+                runs.push(...processInlineFormatting(child, docxGlobal, currentOptions));
+            }
+        });
+        return runs;
+    }
+
+    function parseMarkdownToDocxElements(markdownText, docxGlobal) {
+        const elements = [];
+        // GFM tables, strikethrough, task lists. breaks: true for GFM line breaks (2 spaces at end of line)
+        const markedOptions = {
+            gfm: true,
+            breaks: true,
+            mangle: false,
+            headerIds: false
+        };
+        const html = marked.parse(markdownText, markedOptions);
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const selectedFont = fontPicker.value;
+
+        const getListLevel = (elementNode) => {
+            /* ... same ... */
+            let l = 0;
+            let c = elementNode.parentElement;
+            while (c && c !== tempDiv) {
+                if (c.tagName === 'UL' || c.tagName === 'OL') l++;
+                c = c.parentElement;
+            }
+            return Math.max(0, l);
+        };
+
+        const processNode = (node) => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+                const tagName = node.tagName.toLowerCase();
+                let paragraphOptions = {
+                    style: "Normal"
+                }; // Default to Normal style for paragraphs
+
+                switch (tagName) {
+                    case 'h1':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_1
+                        };
+                        break;
+                    case 'h2':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_2
+                        };
+                        break;
+                    case 'h3':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_3
+                        };
+                        break;
+                    case 'h4':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_4
+                        };
+                        break;
+                    case 'h5':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_5
+                        };
+                        break;
+                    case 'h6':
+                        paragraphOptions = {
+                            heading: docxGlobal.HeadingLevel.HEADING_6
+                        };
+                        break;
+                    case 'p':
+                        break; // Will use default paragraphOptions ("Normal")
+                    case 'blockquote':
+                        paragraphOptions = {
+                            style: "IntenseQuote"
+                        };
+                        break;
+                    case 'hr':
+                        elements.push(new docxGlobal.Paragraph({
+                            thematicBreak: true
+                        }));
+                        return;
+                    case 'pre':
+                        const codeElement = node.querySelector('code');
+                        const codeText = codeElement ? codeElement.textContent : node.textContent;
+                        // Split by lines and create a paragraph for each to preserve line breaks
+                        codeText.split('\n').forEach(line => {
+                            elements.push(new docxGlobal.Paragraph({
+                                children: [new docxGlobal.TextRun({
+                                    text: line
+                                })], // Font & size from style
+                                style: "SourceCode"
+                            }));
+                        });
+                        return;
+                    case 'ul':
+                    case 'ol':
+                        Array.from(node.children).forEach(li => {
+                            if (li.tagName.toLowerCase() === 'li') {
+                                const level = getListLevel(li);
+                                // Handle task list items (GFM extension for marked.js)
+                                const isTaskItem = li.classList.contains("task-list-item");
+                                const isChecked = isTaskItem && li.querySelector("input[type='checkbox']")
+                                    .checked;
+
+                                let prefix = "";
+                                if (isTaskItem) {
+                                    prefix = isChecked ? "☑ " : "☐ ";
+                                }
+
+                                const contentDiv = document.createElement('div');
+                                Array.from(li.childNodes).forEach(childNode => {
+                                    if (childNode.nodeType === Node.ELEMENT_NODE && childNode
+                                        .tagName === 'INPUT' && childNode.type === 'checkbox')
+                                        return;
+                                    if (childNode.nodeType === Node.ELEMENT_NODE && (childNode
+                                            .tagName === 'UL' || childNode.tagName === 'OL'))
+                                return;
+                                    contentDiv.appendChild(childNode.cloneNode(true));
+                                });
+
+                                let textRuns = processInlineFormatting(contentDiv, docxGlobal);
+                                if (prefix) {
+                                    textRuns.unshift(new docxGlobal.TextRun({
+                                        text: prefix,
+                                        font: {
+                                            name: selectedFont
+                                        },
+                                        size: 20
+                                    }));
+                                }
+
+                                elements.push(new docxGlobal.Paragraph({
+                                    children: textRuns,
+                                    bullet: tagName === 'ul' && !isTaskItem ? {
+                                        level: level
+                                    } : undefined, // No bullet for task items if prefix is used
+                                    numbering: tagName === 'ol' ? {
+                                        reference: "default-numbering",
+                                        level: level
+                                    } : undefined
+                                }));
+                                Array.from(li.children).forEach(childNodeInLi => {
+                                    if (childNodeInLi.tagName.toLowerCase() === 'ul' ||
+                                        childNodeInLi.tagName.toLowerCase() === 'ol') {
+                                        processNode(childNodeInLi);
+                                    }
+                                });
+                            }
+                        });
+                        return;
+                    case 'table':
+                        const rows = [];
+                        Array.from(node.querySelectorAll('tr')).forEach(trElement => {
+                            const cells = [];
+                            Array.from(trElement.querySelectorAll('th, td')).forEach(cellElement => {
+                                const cellContentDiv = document.createElement('div');
+                                // Preserve inline elements within table cells
+                                Array.from(cellElement.childNodes).forEach(child => cellContentDiv
+                                    .appendChild(child.cloneNode(true)));
+
+                                cells.push(new docxGlobal.TableCell({
+                                    children: [new docxGlobal.Paragraph({
+                                        children: processInlineFormatting(
+                                            cellContentDiv, docxGlobal)
+                                    })],
+                                    borders: { // Add default borders to table cells
+                                        top: {
+                                            style: docxGlobal.BorderStyle.SINGLE,
+                                            size: 1,
+                                            color: "auto"
+                                        },
+                                        bottom: {
+                                            style: docxGlobal.BorderStyle.SINGLE,
+                                            size: 1,
+                                            color: "auto"
+                                        },
+                                        left: {
+                                            style: docxGlobal.BorderStyle.SINGLE,
+                                            size: 1,
+                                            color: "auto"
+                                        },
+                                        right: {
+                                            style: docxGlobal.BorderStyle.SINGLE,
+                                            size: 1,
+                                            color: "auto"
+                                        },
+                                    },
+                                    // Vertical align can be set here if needed: verticalAlign: docx.VerticalAlign.TOP 
+                                }));
+                            });
+                            rows.push(new docxGlobal.TableRow({
+                                children: cells
+                            }));
+                        });
+                        if (rows.length > 0) {
+                            elements.push(new docxGlobal.Table({
+                                rows: rows,
+                                width: {
+                                    size: 100,
+                                    type: docxGlobal.WidthType.PERCENTAGE
+                                } // Make table full width
+                            }));
+                        }
+                        return;
+                    default: // For unhandled block elements or raw HTML (like the <p style="color:red">)
+                        if (node.textContent.trim()) { // Process its text content as a normal paragraph
+                            paragraphOptions = {
+                                style: "Normal"
+                            };
+                        } else return;
+                }
+                // Common processing for text-based block elements (h1-h6, p, blockquote default)
+                elements.push(new docxGlobal.Paragraph({
+                    children: processInlineFormatting(node, docxGlobal),
+                    ...paragraphOptions
+                }));
+
+            } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                // This should ideally be caught by a parent element's processing of inline content
+                elements.push(new docxGlobal.Paragraph({
+                    children: [new docxGlobal.TextRun(node.textContent.trim())],
+                    style: "Normal"
+                }));
+            }
+        };
+        Array.from(tempDiv.childNodes).forEach(processNode);
+        return elements;
+    }
+
+    generateDocxButton.addEventListener('click', async () => {
+        generateDocxButton.disabled = true;
+        statusDiv.textContent = 'Starting FULL DOCX generation...';
+        const selectedFont = fontPicker.value;
+        const docxGlobal = window.docx;
+        if (!docxGlobal) {
+            statusDiv.textContent = 'Error: DOCX library not loaded.';
+            generateDocxButton.disabled = false;
+            return;
+        }
+
+        try {
+            const finalDocChildren = [];
+            const documentStructure = parseCombinedContentFromTextarea(combinedContentInput.value);
+
+            for (const segment of documentStructure) {
+                if (segment.type === 'markdown' && segment.content.trim()) {
+                    const markdownElements = parseMarkdownToDocxElements(segment.content, docxGlobal);
+                    finalDocChildren.push(...markdownElements);
+                } else if (segment.type === 'mermaid' && segment.id) {
+                    statusDiv.textContent = `Processing Mermaid diagram ${segment.id}...`;
+                    const pngBlob = await renderMermaidToPng(segment.content, segment.id);
+                    if (pngBlob) {
+                        const imageBuffer = await pngBlob.arrayBuffer();
+                        const tempImg = new Image();
+                        tempImg.src = URL.createObjectURL(pngBlob);
+                        await new Promise(r => tempImg.onload = r);
+                        URL.revokeObjectURL(tempImg.src);
+                        if (tempImg.naturalWidth > 0 && tempImg.naturalHeight > 0) {
+                            finalDocChildren.push(new docxGlobal.Paragraph({
+                                children: [new docxGlobal.ImageRun({
+                                    data: imageBuffer,
+                                    transformation: {
+                                        width: tempImg.naturalWidth,
+                                        height: tempImg.naturalHeight
+                                    },
+                                    type: "png",
+                                    fileName: `${segment.id}.png`
+                                })],
+                                alignment: docxGlobal.AlignmentType.CENTER,
+                                spacing: {
+                                    before: 200,
+                                    after: 200
+                                }
+                            }));
+                        } else {
+                            finalDocChildren.push(new docxGlobal.Paragraph({
+                                children: [new docxGlobal.TextRun({
+                                    text: `[Mermaid image ${segment.id} invalid dimensions]`,
+                                    italics: true
+                                })]
+                            }))
+                        }
+                    } else {
+                        finalDocChildren.push(new docxGlobal.Paragraph({
+                            children: [new docxGlobal.TextRun({
+                                text: `[Mermaid image ${segment.id} could not generate]`,
+                                italics: true
+                            })]
+                        }))
+                    }
+                }
+            }
+
+            const documentStyles = {
+                default: {
+                    document: {
+                        run: {
+                            font: selectedFont
+                        }
+                    }, // Base font for document, size set by Normal style
+                    heading1: {
+                        run: {
+                            font: selectedFont,
+                            bold: true,
+                            size: 36
+                        }
+                    },
+                    heading2: {
+                        run: {
+                            font: selectedFont,
+                            bold: true,
+                            size: 28
+                        }
+                    },
+                    heading3: {
+                        run: {
+                            font: selectedFont,
+                            bold: true,
+                            size: 24
+                        }
+                    },
+                    heading4: {
+                        run: {
+                            font: selectedFont,
+                            italics: true,
+                            size: 24
+                        }
+                    },
+                    heading5: {
+                        run: {
+                            font: selectedFont,
+                            bold: true,
+                            size: 22
+                        }
+                    },
+                    heading6: {
+                        run: {
+                            font: selectedFont,
+                            bold: true,
+                            size: 20
+                        }
+                    },
+                },
+                paragraphStyles: [{
+                        id: "Normal",
+                        name: "Normal",
+                        basedOn: "Normal",
+                        next: "Normal",
+                        run: {
+                            font: selectedFont,
+                            size: 20
+                        }
+                    }, // 10pt
+                    {
+                        id: "SourceCode",
+                        name: "Source Code",
+                        basedOn: "Normal",
+                        next: "Normal",
+                        run: {
+                            font: {
+                                name: "Courier New"
+                            },
+                            size: 18
+                        }, // Code blocks: 9pt
+                        paragraph: {
+                            indent: {
+                                left: 400
+                            },
+                            spacing: {
+                                before: 100,
+                                after: 100
+                            },
+                            keepLines: true
+                        }, // Keep lines together for code
+                    },
+                    {
+                        id: "IntenseQuote",
+                        name: "Intense Quote",
+                        basedOn: "Normal",
+                        next: "Normal",
+                        run: {
+                            italics: true,
+                            color: "4F81BD",
+                            font: {
+                                name: selectedFont
+                            },
+                            size: 20
+                        }, // Changed color to match Word's default
+                        paragraph: {
+                            indent: {
+                                left: 720,
+                                right: 720
+                            },
+                            spacing: {
+                                line: 276,
+                                rule: docxGlobal.LineRuleType.AUTO
+                            }
+                        },
+                    },
+                ],
+                characterStyles: [ // Define Hyperlink character style
+                    {
+                        id: "Hyperlink",
+                        name: "Hyperlink",
+                        basedOn: "DefaultParagraphFont",
+                        run: {
+                            color: "0563C1",
+                            underline: {
+                                type: docxGlobal.UnderlineType.SINGLE
+                            }
+                        }
+                    }
+                ]
+            };
+
+            const fullDoc = new docxGlobal.Document({
+                creator: "MarkdownMermaidToDocx",
+                styles: documentStyles,
+                sections: [{
+                    properties: {
+                        page: {
+                            margin: {
+                                top: 1440,
+                                right: 1440,
+                                bottom: 1440,
+                                left: 1440
+                            }
+                        }
+                    },
+                    children: finalDocChildren.length > 0 ? finalDocChildren : [
+                        new docxGlobal.Paragraph("Document is empty.")
+                    ]
+                }],
+                numbering: {
+                    config: [{
+                        reference: "default-numbering",
+                        levels: [{
+                                level: 0,
+                                format: "decimal",
+                                text: "%1.",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 720,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                            {
+                                level: 1,
+                                format: "lowerLetter",
+                                text: "%2)",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 1440,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                            {
+                                level: 2,
+                                format: "lowerRoman",
+                                text: "%3.",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 2160,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                            // Add more levels if needed based on default.md nesting
+                            {
+                                level: 3,
+                                format: "decimal",
+                                text: "%4.",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 2880,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                            {
+                                level: 4,
+                                format: "lowerLetter",
+                                text: "%5)",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 3600,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                            {
+                                level: 5,
+                                format: "lowerRoman",
+                                text: "%6.",
+                                style: {
+                                    paragraph: {
+                                        indent: {
+                                            left: 4320,
+                                            hanging: 360
+                                        }
+                                    }
+                                },
+                                run: {
+                                    font: selectedFont,
+                                    size: 20
+                                }
+                            },
+                        ],
+                    }]
+                },
+            });
+            const blob = await docxGlobal.Packer.toBlob(fullDoc);
+            saveAs(blob, "markdown_mermaid_document.docx");
+            statusDiv.textContent = 'FULL DOCX file generated!';
+        } catch (e) {
+            console.error("Error DOCX gen:", e, e.stack);
+            statusDiv.textContent = `Error DOCX: ${e.message}`;
+        } finally {
+            generateDocxButton.disabled = false;
+        }
+    });
+    </script>
+</body>
+
+</html>
