@@ -52,7 +52,7 @@
 
 ## 5. Images
 
-![Alt text for image](https://placehold.co/150x150.png)
+![Alt text for image](assets/150x150.png)
 
 ---
 
