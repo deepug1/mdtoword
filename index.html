@@ -19,12 +19,18 @@
     <meta property="og:title" content="Markdown to Word Converter - Convert MD & Mermaid to DOCX Online Free">
     <meta property="og:description" content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
     <meta property="og:site_name" content="Markdown to Word Converter">
+    <meta property="og:image" content="https://markdowntoword.deepug.in/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://markdowntoword.deepug.in/">
     <meta name="twitter:title" content="Markdown to Word Converter - Convert MD & Mermaid to DOCX Online Free">
     <meta name="twitter:description" content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
+    <meta name="twitter:image" content="https://markdowntoword.deepug.in/assets/og-image.png">
+    <meta name="twitter:creator" content="@deepaboruah">
     
     <!-- Additional SEO -->
     <meta name="theme-color" content="#007bff">
@@ -69,6 +75,48 @@
         ]
     }
     </script>
+    
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I convert Markdown to Word?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Simply paste your Markdown content into the editor, customize the font if needed, and click 'Generate Full DOCX' to download your Word document."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does this tool support Mermaid diagrams?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! You can include Mermaid diagrams using the ```mermaid code blocks. They will be converted to images in your Word document."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is this Markdown to Word converter free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, this tool is completely free to use. No signup or registration required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Markdown features are supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We support GitHub Flavored Markdown (GFM) including headings, bold, italic, strikethrough, tables, code blocks, lists, blockquotes, links, and images."
+                }
+            }
+        ]
+    }
+    </script>
     <script src="assets/mermaid.min.js"></script>
     <script src="assets/marked.min.js"></script>
     <script src="assets/index.iife.js"></script>
@@ -76,9 +124,17 @@
 </head>
 
 <body>
+    <!-- Header -->
+    <header>
+        <nav aria-label="Main navigation">
+            <a href="/" class="logo" aria-label="Markdown to Word Converter Home">MD → DOCX</a>
+        </nav>
+    </header>
 
+    <main>
     <div class="container">
-        <h1>Markdown & Mermaid to DOCX</h1>
+        <h1>Markdown & Mermaid to DOCX Converter</h1>
+        <p class="intro">Convert your <strong>Markdown files to Word documents</strong> instantly. Supports <strong>Mermaid diagrams</strong>, tables, code blocks, and GitHub Flavored Markdown (GFM). 100% free, no signup required.</p>
 
         <div class="font-picker-section">
             <h3>Document Font (for Preview & DOCX)</h3>
@@ -112,7 +168,48 @@
         <div id="documentPreview">
             <p>Preview will appear here...</p>
         </div>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content" aria-label="Features">
+            <h2>Why Use Our Markdown to Word Converter?</h2>
+            <div class="features-grid">
+                <article>
+                    <h3>📝 Full Markdown Support</h3>
+                    <p>Supports GitHub Flavored Markdown including tables, task lists, strikethrough, and code blocks with syntax highlighting.</p>
+                </article>
+                <article>
+                    <h3>📊 Mermaid Diagrams</h3>
+                    <p>Create flowcharts, sequence diagrams, and more using Mermaid syntax. Diagrams are automatically converted to images in your Word document.</p>
+                </article>
+                <article>
+                    <h3>🎨 Custom Fonts</h3>
+                    <p>Choose from popular fonts like Calibri, Arial, Times New Roman, and more for your document.</p>
+                </article>
+                <article>
+                    <h3>⚡ Instant Conversion</h3>
+                    <p>No server uploads required. Everything happens in your browser for maximum privacy and speed.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- How to Use Section -->
+        <section class="how-to" aria-label="How to use">
+            <h2>How to Convert Markdown to Word</h2>
+            <ol>
+                <li><strong>Paste or type</strong> your Markdown content in the editor above</li>
+                <li><strong>Add Mermaid diagrams</strong> using <code>```mermaid</code> code blocks (optional)</li>
+                <li><strong>Select a font</strong> for your document</li>
+                <li><strong>Click "Generate Full DOCX"</strong> to download your Word file</li>
+            </ol>
+        </section>
     </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 <a href="https://deepug.in" rel="author">Deepu G</a>. Markdown to Word Converter - Free Online Tool</p>
+        <p><small>Convert MD to DOCX | Mermaid to Word | Free Markdown Editor</small></p>
+    </footer>
 
     <script>
     const combinedContentInput = document.getElementById('combinedContentInput');
