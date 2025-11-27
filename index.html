@@ -5,50 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown to Word Converter - Convert MD & Mermaid to DOCX Online Free</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required. Supports GFM, tables, code blocks, and flowcharts.">
-    <meta name="keywords" content="markdown to word, markdown to docx, convert markdown, mermaid to word, md to docx, markdown converter, online markdown editor, free docx converter, mermaid diagrams, flowchart to word">
+    <meta name="description"
+        content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required. Supports GFM, tables, code blocks, and flowcharts.">
+    <meta name="keywords"
+        content="markdown to word, markdown to docx, convert markdown, mermaid to word, md to docx, markdown converter, online markdown editor, free docx converter, mermaid diagrams, flowchart to word">
     <meta name="author" content="Deepu G">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://markdowntoword.deepug.in/">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://markdowntoword.deepug.in/">
     <meta property="og:title" content="Markdown to Word Converter - Convert MD & Mermaid to DOCX Online Free">
-    <meta property="og:description" content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
+    <meta property="og:description"
+        content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
     <meta property="og:site_name" content="Markdown to Word Converter">
     <meta property="og:image" content="https://markdowntoword.deepug.in/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://markdowntoword.deepug.in/">
     <meta name="twitter:title" content="Markdown to Word Converter - Convert MD & Mermaid to DOCX Online Free">
-    <meta name="twitter:description" content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
+    <meta name="twitter:description"
+        content="Free online Markdown to Word converter. Convert Markdown files with Mermaid diagrams to DOCX format instantly. No signup required.">
     <meta name="twitter:image" content="https://markdowntoword.deepug.in/assets/og-image.png">
     <meta name="twitter:creator" content="@deepaboruah">
-    
+
     <!-- Additional SEO -->
     <meta name="theme-color" content="#007bff">
     <meta name="application-name" content="Markdown to Word Converter">
     <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-    
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <!-- Style.css -->
     <link rel="stylesheet" href="assets/style.css">
-    
+
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -75,7 +79,7 @@
         ]
     }
     </script>
-    
+
     <!-- FAQ Schema for Rich Snippets -->
     <script type="application/ld+json">
     {
@@ -132,684 +136,691 @@
     </header>
 
     <main>
-    <div class="container">
-        <h1>Markdown & Mermaid to DOCX Converter</h1>
-        <p class="intro">Convert your <strong>Markdown files to Word documents</strong> instantly. Supports <strong>Mermaid diagrams</strong>, tables, code blocks, and GitHub Flavored Markdown (GFM). 100% free, no signup required.</p>
+        <div class="container">
+            <h1>Markdown & Mermaid to DOCX Converter</h1>
+            <p class="intro">Convert your <strong>Markdown files to Word documents</strong> instantly. Supports
+                <strong>Mermaid diagrams</strong>, tables, code blocks, and GitHub Flavored Markdown (GFM). 100% free,
+                no signup required.</p>
 
-        <div class="font-picker-section">
-            <h3>Document Font (for Preview & DOCX)</h3>
-            <label for="fontPicker">Font:</label>
-            <select id="fontPicker">
-                <option value="Calibri">Calibri</option>
-                <option value="Arial">Arial</option>
-                <option value="Times New Roman">Times New Roman</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Tahoma">Tahoma</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Aptos">Aptos</option>
-            </select>
-        </div>
-
-        <h3>Edit Combined Content</h3>
-        <p>Content below is loaded from <code>default.md</code> (if found and served correctly). Edit Markdown and
-            Mermaid (<code>```mermaid ... ```</code>) blocks directly.</p>
-
-        <textarea id="combinedContentInput"
-            placeholder="Combined Markdown and Mermaid content will appear here..."></textarea>
-
-        <div class="button-group">
-            <button id="generateDocxButton">Generate Full DOCX</button>
-            <button id="printPreviewButton">Print Preview</button>
-        </div>
-        <div id="status"></div>
-
-        <h2>Live Document Preview</h2>
-        <div id="documentPreview">
-            <p>Preview will appear here...</p>
-        </div>
-
-        <!-- SEO Content Section -->
-        <section class="seo-content" aria-label="Features">
-            <h2>Why Use Our Markdown to Word Converter?</h2>
-            <div class="features-grid">
-                <article>
-                    <h3>📝 Full Markdown Support</h3>
-                    <p>Supports GitHub Flavored Markdown including tables, task lists, strikethrough, and code blocks with syntax highlighting.</p>
-                </article>
-                <article>
-                    <h3>📊 Mermaid Diagrams</h3>
-                    <p>Create flowcharts, sequence diagrams, and more using Mermaid syntax. Diagrams are automatically converted to images in your Word document.</p>
-                </article>
-                <article>
-                    <h3>🎨 Custom Fonts</h3>
-                    <p>Choose from popular fonts like Calibri, Arial, Times New Roman, and more for your document.</p>
-                </article>
-                <article>
-                    <h3>⚡ Instant Conversion</h3>
-                    <p>No server uploads required. Everything happens in your browser for maximum privacy and speed.</p>
-                </article>
+            <div class="font-picker-section">
+                <h3>Document Font (for Preview & DOCX)</h3>
+                <label for="fontPicker">Font:</label>
+                <select id="fontPicker">
+                    <option value="Calibri">Calibri</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Aptos">Aptos</option>
+                </select>
             </div>
-        </section>
 
-        <!-- How to Use Section -->
-        <section class="how-to" aria-label="How to use">
-            <h2>How to Convert Markdown to Word</h2>
-            <ol>
-                <li><strong>Paste or type</strong> your Markdown content in the editor above</li>
-                <li><strong>Add Mermaid diagrams</strong> using <code>```mermaid</code> code blocks (optional)</li>
-                <li><strong>Select a font</strong> for your document</li>
-                <li><strong>Click "Generate Full DOCX"</strong> to download your Word file</li>
-            </ol>
-        </section>
-    </div>
+            <h3>Edit Combined Content</h3>
+            <p>Content below is loaded from <code>default.md</code> (if found and served correctly). Edit Markdown and
+                Mermaid (<code>```mermaid ... ```</code>) blocks directly.</p>
+
+            <textarea id="combinedContentInput"
+                placeholder="Combined Markdown and Mermaid content will appear here..."></textarea>
+
+            <div class="button-group">
+                <button id="generateDocxButton">Generate Full DOCX</button>
+                <button id="printPreviewButton">Print Preview</button>
+            </div>
+            <div id="status"></div>
+
+            <h2>Live Document Preview</h2>
+            <div id="documentPreview">
+                <p>Preview will appear here...</p>
+            </div>
+
+            <!-- SEO Content Section -->
+            <section class="seo-content" aria-label="Features">
+                <h2>Why Use Our Markdown to Word Converter?</h2>
+                <div class="features-grid">
+                    <article>
+                        <h3>📝 Full Markdown Support</h3>
+                        <p>Supports GitHub Flavored Markdown including tables, task lists, strikethrough, and code
+                            blocks with syntax highlighting.</p>
+                    </article>
+                    <article>
+                        <h3>📊 Mermaid Diagrams</h3>
+                        <p>Create flowcharts, sequence diagrams, and more using Mermaid syntax. Diagrams are
+                            automatically converted to images in your Word document.</p>
+                    </article>
+                    <article>
+                        <h3>🎨 Custom Fonts</h3>
+                        <p>Choose from popular fonts like Calibri, Arial, Times New Roman, and more for your document.
+                        </p>
+                    </article>
+                    <article>
+                        <h3>⚡ Instant Conversion</h3>
+                        <p>No server uploads required. Everything happens in your browser for maximum privacy and speed.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- How to Use Section -->
+            <section class="how-to" aria-label="How to use">
+                <h2>How to Convert Markdown to Word</h2>
+                <ol>
+                    <li><strong>Paste or type</strong> your Markdown content in the editor above</li>
+                    <li><strong>Add Mermaid diagrams</strong> using <code>```mermaid</code> code blocks (optional)</li>
+                    <li><strong>Select a font</strong> for your document</li>
+                    <li><strong>Click "Generate Full DOCX"</strong> to download your Word file</li>
+                </ol>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 <a href="https://deepug.in" rel="author">Deepu G</a>. Markdown to Word Converter - Free Online Tool</p>
+        <p>&copy; 2025 <a href="https://deepug.in" rel="author">Deepu G</a>. Markdown to Word Converter - Free Online
+            Tool</p>
         <p><small>Convert MD to DOCX | Mermaid to Word | Free Markdown Editor</small></p>
     </footer>
 
     <script>
-    const combinedContentInput = document.getElementById('combinedContentInput');
-    const generateDocxButton = document.getElementById('generateDocxButton');
-    const printPreviewButton = document.getElementById('printPreviewButton');
-    const statusDiv = document.getElementById('status');
-    const documentPreviewDiv = document.getElementById('documentPreview');
-    const fontPicker = document.getElementById('fontPicker');
-    let debounceTimerPreview;
+        const combinedContentInput = document.getElementById('combinedContentInput');
+        const generateDocxButton = document.getElementById('generateDocxButton');
+        const printPreviewButton = document.getElementById('printPreviewButton');
+        const statusDiv = document.getElementById('status');
+        const documentPreviewDiv = document.getElementById('documentPreview');
+        const fontPicker = document.getElementById('fontPicker');
+        let debounceTimerPreview;
 
-    mermaid.initialize({
-        startOnLoad: false,
-        securityLevel: 'loose',
-        flowchart: {
-            htmlLabels: false,
-            useMaxWidth: true
-        },
-        theme: 'default',
-    });
-
-    async function loadDefaultMd() {
-        statusDiv.textContent = 'Loading default.md...';
-        try {
-            const response = await fetch('default.md');
-            if (!response.ok) throw new Error(
-                `Failed to fetch default.md: ${response.statusText} (Status: ${response.status}). Ensure page is served via HTTP/S.`
-                );
-            combinedContentInput.value = await response.text();
-            statusDiv.textContent = 'default.md loaded.';
-        } catch (error) {
-            console.error("Error loading default.md:", error);
-            statusDiv.textContent = `Error: ${error.message}. Using fallback content.`;
-            combinedContentInput.value =
-                `## Fallback Title\n\nCould not load 'default.md'.\n\n\`\`\`mermaid\ngraph TD\nA[Error] --> B[Loading File]\n\`\`\``;
-        }
-        schedulePreviewUpdate();
-    }
-
-    function parseCombinedContentFromTextarea(rawText) {
-        const structure = [];
-        const parts = rawText.split(
-        /(\n?```(?:mermaid|math)\n[\s\S]*?\n```\n?)/g); // Also look for math blocks for future
-        let counter = 0;
-        for (const part of parts) {
-            if (!part || part.trim() === "") continue;
-            const mermaidMatch = part.match(/^\n?```mermaid\n([\s\S]*?)\n```\n?$/);
-            // const mathMatch = part.match(/^\n?```math\n([\s\S]*?)\n```\n?$/); // For future math support
-
-            if (mermaidMatch) {
-                structure.push({
-                    type: 'mermaid',
-                    content: mermaidMatch[1].trim(),
-                    id: `mermaid-${counter++}`
-                });
-                // } else if (mathMatch) {
-                //     structure.push({ type: 'math', content: mathMatch[1].trim(), id: `math-${counter++}` });
-            } else if (part.trim()) {
-                structure.push({
-                    type: 'markdown',
-                    content: part
-                }); // Keep original spacing for markdown
-            }
-        }
-        return structure;
-    }
-
-    function schedulePreviewUpdate() {
-        clearTimeout(debounceTimerPreview);
-        debounceTimerPreview = setTimeout(updateFullPreview, 300);
-    }
-
-    async function updateFullPreview() {
-        statusDiv.textContent = 'Updating preview...';
-        documentPreviewDiv.innerHTML = '';
-        let selectedFontFamily = fontPicker.value;
-        if (selectedFontFamily === 'Aptos') selectedFontFamily = 'Aptos, Calibri, sans-serif';
-        documentPreviewDiv.style.fontFamily = selectedFontFamily;
-
-        const rawContent = combinedContentInput.value;
-        const documentStructure = parseCombinedContentFromTextarea(rawContent);
-        const markedOptions = {
-            gfm: true,
-            breaks: true,
-            mangle: false,
-            headerIds: false
-        }; // breaks: true for line breaks like in GitHub
-
-        for (const segment of documentStructure) {
-            if (segment.type === 'markdown') {
-                const previewSegmentDiv = document.createElement('div');
-                previewSegmentDiv.className = 'markdown-preview-segment';
-                previewSegmentDiv.innerHTML = marked.parse(segment.content, markedOptions);
-                documentPreviewDiv.appendChild(previewSegmentDiv);
-            } else if (segment.type === 'mermaid' && segment.id) {
-                const container = document.createElement('div');
-                container.className = 'mermaid-preview-segment';
-                container.id = `preview-${segment.id}`;
-                documentPreviewDiv.appendChild(container);
-                if (segment.content.trim()) {
-                    try {
-                        const renderId =
-                            `previewSvg-${segment.id}-${Date.now()}${Math.random().toString(16).slice(2)}`;
-                        const {
-                            svg
-                        } = await mermaid.render(renderId, segment.content);
-                        container.innerHTML = svg;
-                    } catch (e) {
-                        container.innerHTML =
-                            `<div class="error-message">Preview Error: ${e.str || e.message}</div>`;
-                    }
-                } else {
-                    container.innerHTML = `<p><i>Empty Mermaid diagram (ID: ${segment.id})</i></p>`;
-                }
-            }
-        }
-        if (!documentStructure.length && rawContent.trim() === "") documentPreviewDiv.innerHTML =
-            `<p><i>Enter content for preview.</i></p>`;
-        statusDiv.textContent = 'Preview updated.';
-    }
-
-    combinedContentInput.addEventListener('input', schedulePreviewUpdate);
-    fontPicker.addEventListener('change', schedulePreviewUpdate);
-    document.addEventListener('DOMContentLoaded', loadDefaultMd);
-    printPreviewButton.addEventListener('click', () => window.print());
-
-    async function renderMermaidToPng(mermaidDefinition, diagramId) {
-        if (!mermaidDefinition.trim()) return null;
-        try {
-            const {
-                svg
-            } = await mermaid.render(`pngSvg-${diagramId}-${Date.now()}`, mermaidDefinition);
-            if (!svg) throw new Error("Mermaid.render failed: no SVG string.");
-            const parser = new DOMParser();
-            const svgDoc = parser.parseFromString(svg, "image/svg+xml");
-            const svgElement = svgDoc.documentElement;
-            if (svgElement.tagName === "parsererror" || !svgElement || svgElement.querySelector("parsererror"))
-                throw new Error("Failed to parse SVG.");
-
-            svgElement.style.backgroundColor = "white";
-            svgElement.querySelectorAll("tspan, text").forEach(t => t.removeAttribute("xml:space"));
-            const cleanedSvgString = new XMLSerializer().serializeToString(svgElement);
-
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                img.onload = () => {
-                    let svgW = parseFloat(svgElement.getAttribute('width')) || img.naturalWidth || 600;
-                    let svgH = parseFloat(svgElement.getAttribute('height')) || img.naturalHeight ||
-                    400;
-                    const viewBox = svgElement.getAttribute('viewBox');
-                    if (viewBox) {
-                        const parts = viewBox.split(/[\s,]+/);
-                        if (parts.length === 4) {
-                            svgW = parseFloat(parts[2]) || svgW;
-                            svgH = parseFloat(parts[3]) || svgH;
-                        }
-                    }
-                    if (svgW <= 0 || svgH <= 0) {
-                        reject(new Error(`Invalid SVG dimensions for ${diagramId}`));
-                        return;
-                    }
-
-                    const scale = 1.5;
-                    canvas.width = Math.max(1, Math.round(svgW * scale));
-                    canvas.height = Math.max(1, Math.round(svgH * scale));
-                    ctx.fillStyle = 'white';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    if (scale !== 1.0) ctx.scale(scale, scale);
-                    ctx.drawImage(img, 0, 0, svgW, svgH);
-                    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error(
-                        "Canvas toBlob failed.")), 'image/png');
-                };
-                img.onerror = () => reject(new Error("Failed to load SVG Data URL into image."));
-                img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(
-                    cleanedSvgString)));
-            });
-        } catch (e) {
-            console.error(`Error in renderMermaidToPng for ${diagramId}:`, e);
-            statusDiv.textContent = `Error PNG ${diagramId}: ${e.message}`;
-            return null;
-        }
-    }
-
-    function processInlineFormatting(parentNode, docxGlobal, options = {}) {
-        const runs = [];
-        const selectedFont = fontPicker.value;
-
-        Array.from(parentNode.childNodes).forEach(child => {
-            if (child.nodeType === Node.TEXT_NODE) {
-                runs.push(new docxGlobal.TextRun({
-                    text: child.textContent,
-                    ...options
-                }));
-            } else if (child.nodeType === Node.ELEMENT_NODE) {
-                let currentOptions = {
-                    ...options
-                }; // Inherit options from parent
-                const tagName = child.tagName.toLowerCase();
-
-                if (['ul', 'ol', 'table', 'thead', 'tbody', 'tr', 'th', 'td'].includes(tagName))
-            return; // Handled by block parser
-
-                switch (tagName) {
-                    case 'strong':
-                    case 'b':
-                        currentOptions.bold = true;
-                        break;
-                    case 'em':
-                    case 'i':
-                        currentOptions.italics = true;
-                        break;
-                    case 'u':
-                        currentOptions.underline = {};
-                        break;
-                    case 'br':
-                        runs.push(new docxGlobal.TextRun({
-                            break: 1,
-                            ...options
-                        }));
-                        return;
-                    case 'del':
-                    case 's':
-                        currentOptions.strike = true;
-                        break;
-                    case 'code': // Inline code
-                        currentOptions.font = {
-                            name: "Courier New"
-                        }; // Monospace font
-                        currentOptions.size = 20; // 10pt size
-                        currentOptions.shading = {
-                            type: docxGlobal.ShadingType.SOLID,
-                            color: "auto",
-                            fill: "F0F0F0"
-                        }; // Light gray background
-                        break;
-                    case 'a': // Links
-                        const href = child.getAttribute('href');
-                        if (href) {
-                            // Recursively process children of <a> to get TextRuns for the link text
-                            const linkTextRuns = processInlineFormatting(child, docxGlobal, {
-                                ...currentOptions,
-                                style: "Hyperlink"
-                            }); // Apply Hyperlink style
-                            linkTextRuns.forEach(run => {
-                                // The Hyperlink object itself will contain these runs.
-                                // For ExternalHyperlink, children should be TextRun[]
-                            });
-                            runs.push(new docxGlobal.ExternalHyperlink({
-                                children: linkTextRuns,
-                                link: href,
-                            }));
-                        }
-                        return; // Handled link, stop further processing of this node here
-                }
-                // Recursively process children with current options
-                runs.push(...processInlineFormatting(child, docxGlobal, currentOptions));
-            }
+        mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: 'loose',
+            flowchart: {
+                htmlLabels: false,
+                useMaxWidth: true
+            },
+            theme: 'default',
         });
-        return runs;
-    }
 
-    function parseMarkdownToDocxElements(markdownText, docxGlobal) {
-        const elements = [];
-        // GFM tables, strikethrough, task lists. breaks: true for GFM line breaks (2 spaces at end of line)
-        const markedOptions = {
-            gfm: true,
-            breaks: true,
-            mangle: false,
-            headerIds: false
-        };
-        const html = marked.parse(markdownText, markedOptions);
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = html;
-        const selectedFont = fontPicker.value;
-
-        const getListLevel = (elementNode) => {
-            /* ... same ... */
-            let l = 0;
-            let c = elementNode.parentElement;
-            while (c && c !== tempDiv) {
-                if (c.tagName === 'UL' || c.tagName === 'OL') l++;
-                c = c.parentElement;
+        async function loadDefaultMd() {
+            statusDiv.textContent = 'Loading default.md...';
+            try {
+                const response = await fetch('default.md');
+                if (!response.ok) throw new Error(
+                    `Failed to fetch default.md: ${response.statusText} (Status: ${response.status}). Ensure page is served via HTTP/S.`
+                );
+                combinedContentInput.value = await response.text();
+                statusDiv.textContent = 'default.md loaded.';
+            } catch (error) {
+                console.error("Error loading default.md:", error);
+                statusDiv.textContent = `Error: ${error.message}. Using fallback content.`;
+                combinedContentInput.value =
+                    `## Fallback Title\n\nCould not load 'default.md'.\n\n\`\`\`mermaid\ngraph TD\nA[Error] --> B[Loading File]\n\`\`\``;
             }
-            return Math.max(0, l);
-        };
-
-        const processNode = (node) => {
-            if (node.nodeType === Node.ELEMENT_NODE) {
-                const tagName = node.tagName.toLowerCase();
-                let paragraphOptions = {
-                    style: "Normal"
-                }; // Default to Normal style for paragraphs
-
-                switch (tagName) {
-                    case 'h1':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_1
-                        };
-                        break;
-                    case 'h2':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_2
-                        };
-                        break;
-                    case 'h3':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_3
-                        };
-                        break;
-                    case 'h4':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_4
-                        };
-                        break;
-                    case 'h5':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_5
-                        };
-                        break;
-                    case 'h6':
-                        paragraphOptions = {
-                            heading: docxGlobal.HeadingLevel.HEADING_6
-                        };
-                        break;
-                    case 'p':
-                        break; // Will use default paragraphOptions ("Normal")
-                    case 'blockquote':
-                        paragraphOptions = {
-                            style: "IntenseQuote"
-                        };
-                        break;
-                    case 'hr':
-                        elements.push(new docxGlobal.Paragraph({
-                            thematicBreak: true
-                        }));
-                        return;
-                    case 'pre':
-                        const codeElement = node.querySelector('code');
-                        const codeText = codeElement ? codeElement.textContent : node.textContent;
-                        // Split by lines and create a paragraph for each to preserve line breaks
-                        codeText.split('\n').forEach(line => {
-                            elements.push(new docxGlobal.Paragraph({
-                                children: [new docxGlobal.TextRun({
-                                    text: line
-                                })], // Font & size from style
-                                style: "SourceCode"
-                            }));
-                        });
-                        return;
-                    case 'ul':
-                    case 'ol':
-                        Array.from(node.children).forEach(li => {
-                            if (li.tagName.toLowerCase() === 'li') {
-                                const level = getListLevel(li);
-                                // Handle task list items (GFM extension for marked.js)
-                                const isTaskItem = li.classList.contains("task-list-item");
-                                const isChecked = isTaskItem && li.querySelector("input[type='checkbox']")
-                                    .checked;
-
-                                let prefix = "";
-                                if (isTaskItem) {
-                                    prefix = isChecked ? "☑ " : "☐ ";
-                                }
-
-                                const contentDiv = document.createElement('div');
-                                Array.from(li.childNodes).forEach(childNode => {
-                                    if (childNode.nodeType === Node.ELEMENT_NODE && childNode
-                                        .tagName === 'INPUT' && childNode.type === 'checkbox')
-                                        return;
-                                    if (childNode.nodeType === Node.ELEMENT_NODE && (childNode
-                                            .tagName === 'UL' || childNode.tagName === 'OL'))
-                                return;
-                                    contentDiv.appendChild(childNode.cloneNode(true));
-                                });
-
-                                let textRuns = processInlineFormatting(contentDiv, docxGlobal);
-                                if (prefix) {
-                                    textRuns.unshift(new docxGlobal.TextRun({
-                                        text: prefix,
-                                        font: {
-                                            name: selectedFont
-                                        },
-                                        size: 20
-                                    }));
-                                }
-
-                                elements.push(new docxGlobal.Paragraph({
-                                    children: textRuns,
-                                    bullet: tagName === 'ul' && !isTaskItem ? {
-                                        level: level
-                                    } : undefined, // No bullet for task items if prefix is used
-                                    numbering: tagName === 'ol' ? {
-                                        reference: "default-numbering",
-                                        level: level
-                                    } : undefined
-                                }));
-                                Array.from(li.children).forEach(childNodeInLi => {
-                                    if (childNodeInLi.tagName.toLowerCase() === 'ul' ||
-                                        childNodeInLi.tagName.toLowerCase() === 'ol') {
-                                        processNode(childNodeInLi);
-                                    }
-                                });
-                            }
-                        });
-                        return;
-                    case 'table':
-                        const rows = [];
-                        Array.from(node.querySelectorAll('tr')).forEach(trElement => {
-                            const cells = [];
-                            Array.from(trElement.querySelectorAll('th, td')).forEach(cellElement => {
-                                const cellContentDiv = document.createElement('div');
-                                // Preserve inline elements within table cells
-                                Array.from(cellElement.childNodes).forEach(child => cellContentDiv
-                                    .appendChild(child.cloneNode(true)));
-
-                                cells.push(new docxGlobal.TableCell({
-                                    children: [new docxGlobal.Paragraph({
-                                        children: processInlineFormatting(
-                                            cellContentDiv, docxGlobal)
-                                    })],
-                                    borders: { // Add default borders to table cells
-                                        top: {
-                                            style: docxGlobal.BorderStyle.SINGLE,
-                                            size: 1,
-                                            color: "auto"
-                                        },
-                                        bottom: {
-                                            style: docxGlobal.BorderStyle.SINGLE,
-                                            size: 1,
-                                            color: "auto"
-                                        },
-                                        left: {
-                                            style: docxGlobal.BorderStyle.SINGLE,
-                                            size: 1,
-                                            color: "auto"
-                                        },
-                                        right: {
-                                            style: docxGlobal.BorderStyle.SINGLE,
-                                            size: 1,
-                                            color: "auto"
-                                        },
-                                    },
-                                    // Vertical align can be set here if needed: verticalAlign: docx.VerticalAlign.TOP 
-                                }));
-                            });
-                            rows.push(new docxGlobal.TableRow({
-                                children: cells
-                            }));
-                        });
-                        if (rows.length > 0) {
-                            elements.push(new docxGlobal.Table({
-                                rows: rows,
-                                width: {
-                                    size: 100,
-                                    type: docxGlobal.WidthType.PERCENTAGE
-                                } // Make table full width
-                            }));
-                        }
-                        return;
-                    default: // For unhandled block elements or raw HTML (like the <p style="color:red">)
-                        if (node.textContent.trim()) { // Process its text content as a normal paragraph
-                            paragraphOptions = {
-                                style: "Normal"
-                            };
-                        } else return;
-                }
-                // Common processing for text-based block elements (h1-h6, p, blockquote default)
-                elements.push(new docxGlobal.Paragraph({
-                    children: processInlineFormatting(node, docxGlobal),
-                    ...paragraphOptions
-                }));
-
-            } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                // This should ideally be caught by a parent element's processing of inline content
-                elements.push(new docxGlobal.Paragraph({
-                    children: [new docxGlobal.TextRun(node.textContent.trim())],
-                    style: "Normal"
-                }));
-            }
-        };
-        Array.from(tempDiv.childNodes).forEach(processNode);
-        return elements;
-    }
-
-    generateDocxButton.addEventListener('click', async () => {
-        generateDocxButton.disabled = true;
-        statusDiv.textContent = 'Starting FULL DOCX generation...';
-        const selectedFont = fontPicker.value;
-        const docxGlobal = window.docx;
-        if (!docxGlobal) {
-            statusDiv.textContent = 'Error: DOCX library not loaded.';
-            generateDocxButton.disabled = false;
-            return;
+            schedulePreviewUpdate();
         }
 
-        try {
-            const finalDocChildren = [];
-            const documentStructure = parseCombinedContentFromTextarea(combinedContentInput.value);
+        function parseCombinedContentFromTextarea(rawText) {
+            const structure = [];
+            const parts = rawText.split(
+                /(\n?```(?:mermaid|math)\n[\s\S]*?\n```\n?)/g); // Also look for math blocks for future
+            let counter = 0;
+            for (const part of parts) {
+                if (!part || part.trim() === "") continue;
+                const mermaidMatch = part.match(/^\n?```mermaid\n([\s\S]*?)\n```\n?$/);
+                // const mathMatch = part.match(/^\n?```math\n([\s\S]*?)\n```\n?$/); // For future math support
+
+                if (mermaidMatch) {
+                    structure.push({
+                        type: 'mermaid',
+                        content: mermaidMatch[1].trim(),
+                        id: `mermaid-${counter++}`
+                    });
+                    // } else if (mathMatch) {
+                    //     structure.push({ type: 'math', content: mathMatch[1].trim(), id: `math-${counter++}` });
+                } else if (part.trim()) {
+                    structure.push({
+                        type: 'markdown',
+                        content: part
+                    }); // Keep original spacing for markdown
+                }
+            }
+            return structure;
+        }
+
+        function schedulePreviewUpdate() {
+            clearTimeout(debounceTimerPreview);
+            debounceTimerPreview = setTimeout(updateFullPreview, 300);
+        }
+
+        async function updateFullPreview() {
+            statusDiv.textContent = 'Updating preview...';
+            documentPreviewDiv.innerHTML = '';
+            let selectedFontFamily = fontPicker.value;
+            if (selectedFontFamily === 'Aptos') selectedFontFamily = 'Aptos, Calibri, sans-serif';
+            documentPreviewDiv.style.fontFamily = selectedFontFamily;
+
+            const rawContent = combinedContentInput.value;
+            const documentStructure = parseCombinedContentFromTextarea(rawContent);
+            const markedOptions = {
+                gfm: true,
+                breaks: true,
+                mangle: false,
+                headerIds: false
+            }; // breaks: true for line breaks like in GitHub
 
             for (const segment of documentStructure) {
-                if (segment.type === 'markdown' && segment.content.trim()) {
-                    const markdownElements = parseMarkdownToDocxElements(segment.content, docxGlobal);
-                    finalDocChildren.push(...markdownElements);
+                if (segment.type === 'markdown') {
+                    const previewSegmentDiv = document.createElement('div');
+                    previewSegmentDiv.className = 'markdown-preview-segment';
+                    previewSegmentDiv.innerHTML = marked.parse(segment.content, markedOptions);
+                    documentPreviewDiv.appendChild(previewSegmentDiv);
                 } else if (segment.type === 'mermaid' && segment.id) {
-                    statusDiv.textContent = `Processing Mermaid diagram ${segment.id}...`;
-                    const pngBlob = await renderMermaidToPng(segment.content, segment.id);
-                    if (pngBlob) {
-                        const imageBuffer = await pngBlob.arrayBuffer();
-                        const tempImg = new Image();
-                        tempImg.src = URL.createObjectURL(pngBlob);
-                        await new Promise(r => tempImg.onload = r);
-                        URL.revokeObjectURL(tempImg.src);
-                        if (tempImg.naturalWidth > 0 && tempImg.naturalHeight > 0) {
-                            finalDocChildren.push(new docxGlobal.Paragraph({
-                                children: [new docxGlobal.ImageRun({
-                                    data: imageBuffer,
-                                    transformation: {
-                                        width: tempImg.naturalWidth,
-                                        height: tempImg.naturalHeight
-                                    },
-                                    type: "png",
-                                    fileName: `${segment.id}.png`
-                                })],
-                                alignment: docxGlobal.AlignmentType.CENTER,
-                                spacing: {
-                                    before: 200,
-                                    after: 200
-                                }
+                    const container = document.createElement('div');
+                    container.className = 'mermaid-preview-segment';
+                    container.id = `preview-${segment.id}`;
+                    documentPreviewDiv.appendChild(container);
+                    if (segment.content.trim()) {
+                        try {
+                            const renderId =
+                                `previewSvg-${segment.id}-${Date.now()}${Math.random().toString(16).slice(2)}`;
+                            const {
+                                svg
+                            } = await mermaid.render(renderId, segment.content);
+                            container.innerHTML = svg;
+                        } catch (e) {
+                            container.innerHTML =
+                                `<div class="error-message">Preview Error: ${e.str || e.message}</div>`;
+                        }
+                    } else {
+                        container.innerHTML = `<p><i>Empty Mermaid diagram (ID: ${segment.id})</i></p>`;
+                    }
+                }
+            }
+            if (!documentStructure.length && rawContent.trim() === "") documentPreviewDiv.innerHTML =
+                `<p><i>Enter content for preview.</i></p>`;
+            statusDiv.textContent = 'Preview updated.';
+        }
+
+        combinedContentInput.addEventListener('input', schedulePreviewUpdate);
+        fontPicker.addEventListener('change', schedulePreviewUpdate);
+        document.addEventListener('DOMContentLoaded', loadDefaultMd);
+        printPreviewButton.addEventListener('click', () => window.print());
+
+        async function renderMermaidToPng(mermaidDefinition, diagramId) {
+            if (!mermaidDefinition.trim()) return null;
+            try {
+                const {
+                    svg
+                } = await mermaid.render(`pngSvg-${diagramId}-${Date.now()}`, mermaidDefinition);
+                if (!svg) throw new Error("Mermaid.render failed: no SVG string.");
+                const parser = new DOMParser();
+                const svgDoc = parser.parseFromString(svg, "image/svg+xml");
+                const svgElement = svgDoc.documentElement;
+                if (svgElement.tagName === "parsererror" || !svgElement || svgElement.querySelector("parsererror"))
+                    throw new Error("Failed to parse SVG.");
+
+                svgElement.style.backgroundColor = "white";
+                svgElement.querySelectorAll("tspan, text").forEach(t => t.removeAttribute("xml:space"));
+                const cleanedSvgString = new XMLSerializer().serializeToString(svgElement);
+
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    img.onload = () => {
+                        let svgW = parseFloat(svgElement.getAttribute('width')) || img.naturalWidth || 600;
+                        let svgH = parseFloat(svgElement.getAttribute('height')) || img.naturalHeight ||
+                            400;
+                        const viewBox = svgElement.getAttribute('viewBox');
+                        if (viewBox) {
+                            const parts = viewBox.split(/[\s,]+/);
+                            if (parts.length === 4) {
+                                svgW = parseFloat(parts[2]) || svgW;
+                                svgH = parseFloat(parts[3]) || svgH;
+                            }
+                        }
+                        if (svgW <= 0 || svgH <= 0) {
+                            reject(new Error(`Invalid SVG dimensions for ${diagramId}`));
+                            return;
+                        }
+
+                        const scale = 1.5;
+                        canvas.width = Math.max(1, Math.round(svgW * scale));
+                        canvas.height = Math.max(1, Math.round(svgH * scale));
+                        ctx.fillStyle = 'white';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        if (scale !== 1.0) ctx.scale(scale, scale);
+                        ctx.drawImage(img, 0, 0, svgW, svgH);
+                        canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error(
+                            "Canvas toBlob failed.")), 'image/png');
+                    };
+                    img.onerror = () => reject(new Error("Failed to load SVG Data URL into image."));
+                    img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(
+                        cleanedSvgString)));
+                });
+            } catch (e) {
+                console.error(`Error in renderMermaidToPng for ${diagramId}:`, e);
+                statusDiv.textContent = `Error PNG ${diagramId}: ${e.message}`;
+                return null;
+            }
+        }
+
+        function processInlineFormatting(parentNode, docxGlobal, options = {}) {
+            const runs = [];
+            const selectedFont = fontPicker.value;
+
+            Array.from(parentNode.childNodes).forEach(child => {
+                if (child.nodeType === Node.TEXT_NODE) {
+                    runs.push(new docxGlobal.TextRun({
+                        text: child.textContent,
+                        ...options
+                    }));
+                } else if (child.nodeType === Node.ELEMENT_NODE) {
+                    let currentOptions = {
+                        ...options
+                    }; // Inherit options from parent
+                    const tagName = child.tagName.toLowerCase();
+
+                    if (['ul', 'ol', 'table', 'thead', 'tbody', 'tr', 'th', 'td'].includes(tagName))
+                        return; // Handled by block parser
+
+                    switch (tagName) {
+                        case 'strong':
+                        case 'b':
+                            currentOptions.bold = true;
+                            break;
+                        case 'em':
+                        case 'i':
+                            currentOptions.italics = true;
+                            break;
+                        case 'u':
+                            currentOptions.underline = {};
+                            break;
+                        case 'br':
+                            runs.push(new docxGlobal.TextRun({
+                                break: 1,
+                                ...options
                             }));
+                            return;
+                        case 'del':
+                        case 's':
+                            currentOptions.strike = true;
+                            break;
+                        case 'code': // Inline code
+                            currentOptions.font = {
+                                name: "Courier New"
+                            }; // Monospace font
+                            currentOptions.size = 20; // 10pt size
+                            currentOptions.shading = {
+                                type: docxGlobal.ShadingType.SOLID,
+                                color: "auto",
+                                fill: "F0F0F0"
+                            }; // Light gray background
+                            break;
+                        case 'a': // Links
+                            const href = child.getAttribute('href');
+                            if (href) {
+                                // Recursively process children of <a> to get TextRuns for the link text
+                                const linkTextRuns = processInlineFormatting(child, docxGlobal, {
+                                    ...currentOptions,
+                                    style: "Hyperlink"
+                                }); // Apply Hyperlink style
+                                linkTextRuns.forEach(run => {
+                                    // The Hyperlink object itself will contain these runs.
+                                    // For ExternalHyperlink, children should be TextRun[]
+                                });
+                                runs.push(new docxGlobal.ExternalHyperlink({
+                                    children: linkTextRuns,
+                                    link: href,
+                                }));
+                            }
+                            return; // Handled link, stop further processing of this node here
+                    }
+                    // Recursively process children with current options
+                    runs.push(...processInlineFormatting(child, docxGlobal, currentOptions));
+                }
+            });
+            return runs;
+        }
+
+        function parseMarkdownToDocxElements(markdownText, docxGlobal) {
+            const elements = [];
+            // GFM tables, strikethrough, task lists. breaks: true for GFM line breaks (2 spaces at end of line)
+            const markedOptions = {
+                gfm: true,
+                breaks: true,
+                mangle: false,
+                headerIds: false
+            };
+            const html = marked.parse(markdownText, markedOptions);
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const selectedFont = fontPicker.value;
+
+            const getListLevel = (elementNode) => {
+                /* ... same ... */
+                let l = 0;
+                let c = elementNode.parentElement;
+                while (c && c !== tempDiv) {
+                    if (c.tagName === 'UL' || c.tagName === 'OL') l++;
+                    c = c.parentElement;
+                }
+                return Math.max(0, l);
+            };
+
+            const processNode = (node) => {
+                if (node.nodeType === Node.ELEMENT_NODE) {
+                    const tagName = node.tagName.toLowerCase();
+                    let paragraphOptions = {
+                        style: "Normal"
+                    }; // Default to Normal style for paragraphs
+
+                    switch (tagName) {
+                        case 'h1':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_1
+                            };
+                            break;
+                        case 'h2':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_2
+                            };
+                            break;
+                        case 'h3':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_3
+                            };
+                            break;
+                        case 'h4':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_4
+                            };
+                            break;
+                        case 'h5':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_5
+                            };
+                            break;
+                        case 'h6':
+                            paragraphOptions = {
+                                heading: docxGlobal.HeadingLevel.HEADING_6
+                            };
+                            break;
+                        case 'p':
+                            break; // Will use default paragraphOptions ("Normal")
+                        case 'blockquote':
+                            paragraphOptions = {
+                                style: "IntenseQuote"
+                            };
+                            break;
+                        case 'hr':
+                            elements.push(new docxGlobal.Paragraph({
+                                thematicBreak: true
+                            }));
+                            return;
+                        case 'pre':
+                            const codeElement = node.querySelector('code');
+                            const codeText = codeElement ? codeElement.textContent : node.textContent;
+                            // Split by lines and create a paragraph for each to preserve line breaks
+                            codeText.split('\n').forEach(line => {
+                                elements.push(new docxGlobal.Paragraph({
+                                    children: [new docxGlobal.TextRun({
+                                        text: line
+                                    })], // Font & size from style
+                                    style: "SourceCode"
+                                }));
+                            });
+                            return;
+                        case 'ul':
+                        case 'ol':
+                            Array.from(node.children).forEach(li => {
+                                if (li.tagName.toLowerCase() === 'li') {
+                                    const level = getListLevel(li);
+                                    // Handle task list items (GFM extension for marked.js)
+                                    const isTaskItem = li.classList.contains("task-list-item");
+                                    const isChecked = isTaskItem && li.querySelector("input[type='checkbox']")
+                                        .checked;
+
+                                    let prefix = "";
+                                    if (isTaskItem) {
+                                        prefix = isChecked ? "☑ " : "☐ ";
+                                    }
+
+                                    const contentDiv = document.createElement('div');
+                                    Array.from(li.childNodes).forEach(childNode => {
+                                        if (childNode.nodeType === Node.ELEMENT_NODE && childNode
+                                            .tagName === 'INPUT' && childNode.type === 'checkbox')
+                                            return;
+                                        if (childNode.nodeType === Node.ELEMENT_NODE && (childNode
+                                            .tagName === 'UL' || childNode.tagName === 'OL'))
+                                            return;
+                                        contentDiv.appendChild(childNode.cloneNode(true));
+                                    });
+
+                                    let textRuns = processInlineFormatting(contentDiv, docxGlobal);
+                                    if (prefix) {
+                                        textRuns.unshift(new docxGlobal.TextRun({
+                                            text: prefix,
+                                            font: {
+                                                name: selectedFont
+                                            },
+                                            size: 20
+                                        }));
+                                    }
+
+                                    elements.push(new docxGlobal.Paragraph({
+                                        children: textRuns,
+                                        bullet: tagName === 'ul' && !isTaskItem ? {
+                                            level: level
+                                        } : undefined, // No bullet for task items if prefix is used
+                                        numbering: tagName === 'ol' ? {
+                                            reference: "default-numbering",
+                                            level: level
+                                        } : undefined
+                                    }));
+                                    Array.from(li.children).forEach(childNodeInLi => {
+                                        if (childNodeInLi.tagName.toLowerCase() === 'ul' ||
+                                            childNodeInLi.tagName.toLowerCase() === 'ol') {
+                                            processNode(childNodeInLi);
+                                        }
+                                    });
+                                }
+                            });
+                            return;
+                        case 'table':
+                            const rows = [];
+                            Array.from(node.querySelectorAll('tr')).forEach(trElement => {
+                                const cells = [];
+                                Array.from(trElement.querySelectorAll('th, td')).forEach(cellElement => {
+                                    const cellContentDiv = document.createElement('div');
+                                    // Preserve inline elements within table cells
+                                    Array.from(cellElement.childNodes).forEach(child => cellContentDiv
+                                        .appendChild(child.cloneNode(true)));
+
+                                    cells.push(new docxGlobal.TableCell({
+                                        children: [new docxGlobal.Paragraph({
+                                            children: processInlineFormatting(
+                                                cellContentDiv, docxGlobal)
+                                        })],
+                                        borders: { // Add default borders to table cells
+                                            top: {
+                                                style: docxGlobal.BorderStyle.SINGLE,
+                                                size: 1,
+                                                color: "auto"
+                                            },
+                                            bottom: {
+                                                style: docxGlobal.BorderStyle.SINGLE,
+                                                size: 1,
+                                                color: "auto"
+                                            },
+                                            left: {
+                                                style: docxGlobal.BorderStyle.SINGLE,
+                                                size: 1,
+                                                color: "auto"
+                                            },
+                                            right: {
+                                                style: docxGlobal.BorderStyle.SINGLE,
+                                                size: 1,
+                                                color: "auto"
+                                            },
+                                        },
+                                        // Vertical align can be set here if needed: verticalAlign: docx.VerticalAlign.TOP 
+                                    }));
+                                });
+                                rows.push(new docxGlobal.TableRow({
+                                    children: cells
+                                }));
+                            });
+                            if (rows.length > 0) {
+                                elements.push(new docxGlobal.Table({
+                                    rows: rows,
+                                    width: {
+                                        size: 100,
+                                        type: docxGlobal.WidthType.PERCENTAGE
+                                    } // Make table full width
+                                }));
+                            }
+                            return;
+                        default: // For unhandled block elements or raw HTML (like the <p style="color:red">)
+                            if (node.textContent.trim()) { // Process its text content as a normal paragraph
+                                paragraphOptions = {
+                                    style: "Normal"
+                                };
+                            } else return;
+                    }
+                    // Common processing for text-based block elements (h1-h6, p, blockquote default)
+                    elements.push(new docxGlobal.Paragraph({
+                        children: processInlineFormatting(node, docxGlobal),
+                        ...paragraphOptions
+                    }));
+
+                } else if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                    // This should ideally be caught by a parent element's processing of inline content
+                    elements.push(new docxGlobal.Paragraph({
+                        children: [new docxGlobal.TextRun(node.textContent.trim())],
+                        style: "Normal"
+                    }));
+                }
+            };
+            Array.from(tempDiv.childNodes).forEach(processNode);
+            return elements;
+        }
+
+        generateDocxButton.addEventListener('click', async () => {
+            generateDocxButton.disabled = true;
+            statusDiv.textContent = 'Starting FULL DOCX generation...';
+            const selectedFont = fontPicker.value;
+            const docxGlobal = window.docx;
+            if (!docxGlobal) {
+                statusDiv.textContent = 'Error: DOCX library not loaded.';
+                generateDocxButton.disabled = false;
+                return;
+            }
+
+            try {
+                const finalDocChildren = [];
+                const documentStructure = parseCombinedContentFromTextarea(combinedContentInput.value);
+
+                for (const segment of documentStructure) {
+                    if (segment.type === 'markdown' && segment.content.trim()) {
+                        const markdownElements = parseMarkdownToDocxElements(segment.content, docxGlobal);
+                        finalDocChildren.push(...markdownElements);
+                    } else if (segment.type === 'mermaid' && segment.id) {
+                        statusDiv.textContent = `Processing Mermaid diagram ${segment.id}...`;
+                        const pngBlob = await renderMermaidToPng(segment.content, segment.id);
+                        if (pngBlob) {
+                            const imageBuffer = await pngBlob.arrayBuffer();
+                            const tempImg = new Image();
+                            tempImg.src = URL.createObjectURL(pngBlob);
+                            await new Promise(r => tempImg.onload = r);
+                            URL.revokeObjectURL(tempImg.src);
+                            if (tempImg.naturalWidth > 0 && tempImg.naturalHeight > 0) {
+                                finalDocChildren.push(new docxGlobal.Paragraph({
+                                    children: [new docxGlobal.ImageRun({
+                                        data: imageBuffer,
+                                        transformation: {
+                                            width: tempImg.naturalWidth,
+                                            height: tempImg.naturalHeight
+                                        },
+                                        type: "png",
+                                        fileName: `${segment.id}.png`
+                                    })],
+                                    alignment: docxGlobal.AlignmentType.CENTER,
+                                    spacing: {
+                                        before: 200,
+                                        after: 200
+                                    }
+                                }));
+                            } else {
+                                finalDocChildren.push(new docxGlobal.Paragraph({
+                                    children: [new docxGlobal.TextRun({
+                                        text: `[Mermaid image ${segment.id} invalid dimensions]`,
+                                        italics: true
+                                    })]
+                                }))
+                            }
                         } else {
                             finalDocChildren.push(new docxGlobal.Paragraph({
                                 children: [new docxGlobal.TextRun({
-                                    text: `[Mermaid image ${segment.id} invalid dimensions]`,
+                                    text: `[Mermaid image ${segment.id} could not generate]`,
                                     italics: true
                                 })]
                             }))
                         }
-                    } else {
-                        finalDocChildren.push(new docxGlobal.Paragraph({
-                            children: [new docxGlobal.TextRun({
-                                text: `[Mermaid image ${segment.id} could not generate]`,
-                                italics: true
-                            })]
-                        }))
                     }
                 }
-            }
 
-            const documentStyles = {
-                default: {
-                    document: {
-                        run: {
-                            font: selectedFont
-                        }
-                    }, // Base font for document, size set by Normal style
-                    heading1: {
-                        run: {
-                            font: selectedFont,
-                            bold: true,
-                            size: 36
-                        }
+                const documentStyles = {
+                    default: {
+                        document: {
+                            run: {
+                                font: selectedFont
+                            }
+                        }, // Base font for document, size set by Normal style
+                        heading1: {
+                            run: {
+                                font: selectedFont,
+                                bold: true,
+                                size: 36
+                            }
+                        },
+                        heading2: {
+                            run: {
+                                font: selectedFont,
+                                bold: true,
+                                size: 28
+                            }
+                        },
+                        heading3: {
+                            run: {
+                                font: selectedFont,
+                                bold: true,
+                                size: 24
+                            }
+                        },
+                        heading4: {
+                            run: {
+                                font: selectedFont,
+                                italics: true,
+                                size: 24
+                            }
+                        },
+                        heading5: {
+                            run: {
+                                font: selectedFont,
+                                bold: true,
+                                size: 22
+                            }
+                        },
+                        heading6: {
+                            run: {
+                                font: selectedFont,
+                                bold: true,
+                                size: 20
+                            }
+                        },
                     },
-                    heading2: {
-                        run: {
-                            font: selectedFont,
-                            bold: true,
-                            size: 28
-                        }
-                    },
-                    heading3: {
-                        run: {
-                            font: selectedFont,
-                            bold: true,
-                            size: 24
-                        }
-                    },
-                    heading4: {
-                        run: {
-                            font: selectedFont,
-                            italics: true,
-                            size: 24
-                        }
-                    },
-                    heading5: {
-                        run: {
-                            font: selectedFont,
-                            bold: true,
-                            size: 22
-                        }
-                    },
-                    heading6: {
-                        run: {
-                            font: selectedFont,
-                            bold: true,
-                            size: 20
-                        }
-                    },
-                },
-                paragraphStyles: [{
+                    paragraphStyles: [{
                         id: "Normal",
                         name: "Normal",
                         basedOn: "Normal",
@@ -865,44 +876,44 @@
                             }
                         },
                     },
-                ],
-                characterStyles: [ // Define Hyperlink character style
-                    {
-                        id: "Hyperlink",
-                        name: "Hyperlink",
-                        basedOn: "DefaultParagraphFont",
-                        run: {
-                            color: "0563C1",
-                            underline: {
-                                type: docxGlobal.UnderlineType.SINGLE
+                    ],
+                    characterStyles: [ // Define Hyperlink character style
+                        {
+                            id: "Hyperlink",
+                            name: "Hyperlink",
+                            basedOn: "DefaultParagraphFont",
+                            run: {
+                                color: "0563C1",
+                                underline: {
+                                    type: docxGlobal.UnderlineType.SINGLE
+                                }
                             }
                         }
-                    }
-                ]
-            };
-
-            const fullDoc = new docxGlobal.Document({
-                creator: "MarkdownMermaidToDocx",
-                styles: documentStyles,
-                sections: [{
-                    properties: {
-                        page: {
-                            margin: {
-                                top: 1440,
-                                right: 1440,
-                                bottom: 1440,
-                                left: 1440
-                            }
-                        }
-                    },
-                    children: finalDocChildren.length > 0 ? finalDocChildren : [
-                        new docxGlobal.Paragraph("Document is empty.")
                     ]
-                }],
-                numbering: {
-                    config: [{
-                        reference: "default-numbering",
-                        levels: [{
+                };
+
+                const fullDoc = new docxGlobal.Document({
+                    creator: "MarkdownMermaidToDocx",
+                    styles: documentStyles,
+                    sections: [{
+                        properties: {
+                            page: {
+                                margin: {
+                                    top: 1440,
+                                    right: 1440,
+                                    bottom: 1440,
+                                    left: 1440
+                                }
+                            }
+                        },
+                        children: finalDocChildren.length > 0 ? finalDocChildren : [
+                            new docxGlobal.Paragraph("Document is empty.")
+                        ]
+                    }],
+                    numbering: {
+                        config: [{
+                            reference: "default-numbering",
+                            levels: [{
                                 level: 0,
                                 format: "decimal",
                                 text: "%1.",
@@ -1005,20 +1016,20 @@
                                     size: 20
                                 }
                             },
-                        ],
-                    }]
-                },
-            });
-            const blob = await docxGlobal.Packer.toBlob(fullDoc);
-            saveAs(blob, "markdown_mermaid_document.docx");
-            statusDiv.textContent = 'FULL DOCX file generated!';
-        } catch (e) {
-            console.error("Error DOCX gen:", e, e.stack);
-            statusDiv.textContent = `Error DOCX: ${e.message}`;
-        } finally {
-            generateDocxButton.disabled = false;
-        }
-    });
+                            ],
+                        }]
+                    },
+                });
+                const blob = await docxGlobal.Packer.toBlob(fullDoc);
+                saveAs(blob, "markdown_mermaid_document.docx");
+                statusDiv.textContent = 'FULL DOCX file generated!';
+            } catch (e) {
+                console.error("Error DOCX gen:", e, e.stack);
+                statusDiv.textContent = `Error DOCX: ${e.message}`;
+            } finally {
+                generateDocxButton.disabled = false;
+            }
+        });
     </script>
 </body>
 
